@@ -1,0 +1,54 @@
+<h2 style="color:darkcyan" class="example-form">Client Daten</h2>
+
+<form class="example-form" [formGroup]="rForm" (ngSubmit)="createClient()">
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Firstname</mat-label>
+      <input type="text" formControlName="firstname" matInput placeholder="Firstname">
+      <mat-hint *ngIf="!rForm.controls['firstname'].valid && rForm.controls['firstname'].touched">Firstname required!</mat-hint>
+    </mat-form-field>
+    <!--     <div *ngIf="!rForm.controls['firstname'].valid && rForm.controls['firstname'].touched">{{titleAlert}}</div>-->
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Lastname</mat-label>
+      <input type="text" formControlName="lastname" matInput placeholder="Lastname">
+      <mat-hint *ngIf="!rForm.controls['firstname'].valid && rForm.controls['firstname'].touched">Lastname required!</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Email</mat-label>
+      <input type="text" formControlName="email" matInput placeholder="email">
+      <mat-hint *ngIf="rForm.controls['email'].invalid && !rForm.controls['email'].untouched">Email-Address must be Valid!</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Phone</mat-label>
+      <input type="text" pattern="[0-9]*" maxlength="11" formControlName="phone" matInput placeholder="01234567">
+      <mat-hint *ngIf="rForm.controls['phone'].invalid && !rForm.controls['phone'].untouched">only Numbers!</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Age</mat-label>
+      <input type="text" pattern="[0-9]*" maxlength="3" formControlName="age" matInput placeholder="Age">
+      <mat-hint *ngIf="rForm.controls['age'].invalid && !rForm.controls['age'].untouched">only Numbers!</mat-hint>
+    </mat-form-field>
+  </p>
+  <mat-form-field>
+    <mat-select formControlName="software" placeholder="Select Software">
+      <mat-option [value]="software.name" *ngFor="let software of allSoftwares">{{software.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <button type="submit" mat-raised-button color="primary" [disabled]="!rForm.valid"> Add Client </button>
+<!--  <br>-->
+<!--  <mat-hint *ngIf="returnText">{{returnText}}</mat-hint>-->
+<!--  <br>-->
+<!--  <mat-hint *ngIf="ErrorMsgText1">{{ErrorMsgText1}}</mat-hint>-->
+<!--  <br>-->
+<!--  <mat-hint *ngIf="ErrorMsgText2">{{ErrorMsgText2}}</mat-hint>-->
+</form>

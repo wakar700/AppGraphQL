@@ -1,0 +1,29 @@
+<div class="box">
+<h2>Softwares</h2>
+  <ul class="softwares">
+    <li *ngFor="let software of allSoftwares"
+        [class.selected]="software === selectedSoftware"
+        (click)="onSelect(software)">
+      {{software.name}}
+    </li>
+  </ul>
+  <div>
+    <mat-icon id="sortIcon" (click)="sortFunktion()" >sort_by_alpha</mat-icon>
+    <div *ngIf="sortByAlpha"></div>
+  </div>
+</div>
+
+
+<div *ngIf="selectedSoftware" class="example-container">
+
+  <h2> Details: </h2>
+    <textarea matInput cdkTextareaAutosize readonly>
+      Price: {{selectedSoftware.price}}
+
+      Operating System: {{selectedSoftware.system}}
+
+      Discription:
+
+      {{selectedSoftware.disc}}
+    </textarea>
+</div>

@@ -1,0 +1,109 @@
+.softwares {
+  display: inline-block;
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+.softwares li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: darkseagreen;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.softwares li:hover {
+  color: #405061;
+  background-color: darkseagreen;
+  left: .1em;
+}
+.softwares li.selected {
+  background-color: darkolivegreen;
+  color: black;
+}
+.softwares li.selected:hover {
+  background-color: cadetblue;
+  color: black;
+}
+.softwares .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #405061;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+.box{
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-left: 10%;
+}
+
+.softwareliste{
+  float: left;
+  text-align: center;
+}
+
+#optionList{
+  margin-top: 8em;
+  margin-left: 11em;
+}
+
+.btn{
+  margin-left: 15em;
+}
+
+.btn:hover{
+  background-color: darkred;
+
+}
+
+.btn-group .button {
+  background-color: green; /* Green */
+  border: 2px solid green;
+  color: white;
+  padding: 5px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  cursor: pointer;
+  float: left;
+  margin-left: 10em;
+}
+
+.btn-group .button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+#deleteIcon:hover {
+  color: darkred;
+}
+
+#deleteIcon{
+  margin-left: 190px;
+  color: gray;
+  cursor: pointer;
+  padding: 1% 1%;
+}
+
+#sortIcon{
+  margin-left: 40%;
+  margin-top: -3em;
+  cursor: pointer;
+  padding: 1% 1%;
+}
+#sortIcon:hover{
+  color: gray;
+}
+

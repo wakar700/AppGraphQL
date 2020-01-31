@@ -1,0 +1,43 @@
+<div class="softwareliste">
+
+  <h2 style="color:darkcyan">Overview for Clients Booking Softwares</h2>
+  <ul class="softwares">
+    <li *ngFor="let client of allClients"
+        [class.selected]="client === selectedClient"
+        (click)="onSelect(client)">
+      {{client.firstname}} {{client.lastname}}
+    </li>
+  </ul>
+  <div>
+    <mat-icon id="sortIcon" (click)="sortFunktion()" >sort_by_alpha</mat-icon>
+    <div *ngIf="sortByAlpha"></div>
+  </div>
+
+</div>
+
+<div class="box">
+  <!-- Anzeige der gebuchten SoftwareListe -->
+  <div *ngIf="selectedClient" class="btn-group">
+    <h2 style="color:darkcyan"> Softwarelists for {{selectedClient.firstname}} {{selectedClient.lastname}} </h2>
+      <tr *ngFor="let softwares of selectedClient.softwareSet">
+        <td>{{softwares.name}}</td>
+        <td><mat-icon id="deleteIcon">delete</mat-icon></td>
+      </tr>
+    <br>
+        <div>
+          <!-- Auswahl an weitere Softwares -->
+
+          <form [formGroup]="rForm" (ngSubmit)="addSoftware(rForm.value)">
+            <div>
+              <mat-form-field>
+                <mat-select formControlName="softwareName" placeholder="Select Software">
+                  <mat-option [value]="software.name" *ngFor="let software of allSoftwares">{{software.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!rForm.valid">Add Softwares</button><br>
+          </form>
+
+        </div>
+  </div>
+</div>
